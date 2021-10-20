@@ -1,2 +1,2 @@
 # BiDirectCausal
-R package for methods inferring bi-directional causal effects. More functions are examples will be available soon.
+R package for methods inferring bi-directional causal effects. Examples and illustrations will be available soon.
