@@ -1,3 +1,24 @@
+#' Bi-directional MRcML Method
+#'
+#' @param b_X Vector of estimated effect sizes for trait 1.
+#' @param b_Y Vector of estimated effect sizes for trait 2.
+#' @param se_X Vector of standard errors of b_X.
+#' @param se_Y Vector of standard errors of b_Y.
+#' @param n_X Sample size for trait 1.
+#' @param n_Y Sample size for trait 2.
+#' @param sig.cutoff Significant cutoff to choose IV, defaul is 5e-8.
+#' @param num_pert Number of perturbations, default is 100.
+#' @param random_start Number of starting points for solving non-convex optimization
+#' in cML method, defaul is 0, i.e. no random starting point.
+#' @param random.seed Random seed, default is 0, i.e. no random seed is set.
+#'
+#' @return List of estimated causal effect (est) and
+#' corresponding standard error (se) obtained with MRcML, for
+#' both directions. "NoS" indicates no screening, "S" indicates with screening.
+#' "DP" indicates results with data perturbation, otherwise without data perturbation.
+#' @export
+#'
+#' @examples
 BiDirMRcML <- function(b_X,b_Y,se_X,se_Y,n_X,n_Y,
                        sig.cutoff = 5e-8, num_pert = 100,
                        random_start = 0, random.seed = 0)

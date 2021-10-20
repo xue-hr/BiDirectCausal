@@ -1,3 +1,20 @@
+#' Bi-directional CD Methods
+#'
+#' @param b_X Vector of estimated effect sizes for trait 1.
+#' @param b_Y Vector of estimated effect sizes for trait 2.
+#' @param se_X Vector of standard errors of b_X.
+#' @param se_Y Vector of standard errors of b_Y.
+#' @param n_X Sample size for trait 1.
+#' @param n_Y Sample size for trait 2.
+#' @param sig.cutoff Significant cutoff to choose IV, defaul is 5e-8.
+#' @param random.seed Random seed, default is 0, i.e. no random seed is set.
+#'
+#' @return List of estimated correlation ratio (est) and
+#' corresponding standard error (se) obtained with CD-Ratio and CD-Egger, for
+#' both directions. "NoS" indicates no screening, "S" indicates with screening.
+#' @export
+#'
+#' @examples
 BiDirCDMethod <- function(b_X,b_Y,se_X,se_Y,n_X,n_Y,
                           sig.cutoff = 5e-8, random.seed = 0)
 {
@@ -63,7 +80,7 @@ BiDirCDMethod <- function(b_X,b_Y,se_X,se_Y,n_X,n_Y,
               CDRatio.YtoX.est.S = CD_YtoX_S$CD_Ratio_result$T1toT2[1],
               CDRatio.YtoX.se.S = CD_YtoX_S$CD_Ratio_result$T1toT2[2],
               CDEgger.YtoX.est.S = CD_YtoX_S$CD_Egger_result$T1toT2[2],
-              CDEgger.YtoX.se.S) = CD_YtoX_S$CD_Egger_result$T1toT2[4])
+              CDEgger.YtoX.se.S = CD_YtoX_S$CD_Egger_result$T1toT2[4]))
 
 
 }
