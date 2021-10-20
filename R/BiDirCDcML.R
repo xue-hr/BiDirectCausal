@@ -6,8 +6,8 @@ BiDirCDcML <- function(b_X,b_Y,se_X,se_Y,n_X,n_Y,
   pvalue.X = pnorm(-abs(b_X/se_X))*2
   pvalue.Y = pnorm(-abs(b_Y/se_Y))*2
 
-  ind_X = which(pvalue.X<(5e-8))
-  ind_Y = which(pvalue.Y<(5e-8))
+  ind_X = which(pvalue.X<(sig.cutoff))
+  ind_Y = which(pvalue.Y<(sig.cutoff))
 
   cor_X = b_X / sqrt(b_X^2 + (n_X-2)*se_X^2)
   cor_Y = b_Y / sqrt(b_Y^2 + (n_Y-2)*se_Y^2)
@@ -61,6 +61,21 @@ BiDirCDcML <- function(b_X,b_Y,se_X,se_Y,n_X,n_Y,
                            n = min(n_X,n_Y),random_start = random_start,
                            random_start_pert = random_start,
                            num_pert = num_pert)
-
+  return(list(XtoY.est.NoS = CDcML_XtoY_NoS$MA_BIC_theta,
+              XtoY.se.NoS = CDcML_XtoY_NoS$MA_BIC_se,
+              YtoX.est.NoS = CDcML_YtoX_NoS$MA_BIC_theta,
+              YtoX.se.NoS = CDcML_YtoX_NoS$MA_BIC_se,
+              XtoY.est.S = CDcML_XtoY_S$MA_BIC_theta,
+              XtoY.se.S = CDcML_XtoY_S$MA_BIC_se,
+              YtoX.est.S = CDcML_YtoX_S$MA_BIC_theta,
+              YtoX.se.S = CDcML_YtoX_S$MA_BIC_se,
+              XtoY.est.NoS.DP = CDcML_XtoY_NoS$MA_BIC_DP_theta,
+              XtoY.se.NoS.DP = CDcML_XtoY_NoS$MA_BIC_DP_se,
+              YtoX.est.NoS.DP = CDcML_YtoX_NoS$MA_BIC_DP_theta,
+              YtoX.se.NoS.DP = CDcML_YtoX_NoS$MA_BIC_DP_se,
+              XtoY.est.S.DP = CDcML_XtoY_S$MA_BIC_DP_theta,
+              XtoY.se.S.DP = CDcML_XtoY_S$MA_BIC_DP_se,
+              YtoX.est.S.DP = CDcML_YtoX_S$MA_BIC_DP_theta,
+              YtoX.se.S.DP = CDcML_YtoX_S$MA_BIC_DP_se))
 
 }
