@@ -144,9 +144,9 @@ BiDirCDMethod(b_X = b_X,
 
 ```
 
-With `est` and corresponding `se` we could get the p-value. For example, for **X** to **Y**, CD-cML-DP-S gives estimate 0.1045348 and standard error 0.01432697, we could calculate p-value as 
+With `est` and corresponding `se` we could get the p-value. For example, for **X** to **Y**, CD-cML-DP-S gives estimate 0.1048932 and standard error 0.01390019, we could calculate p-value as 
 ```{r}
-pnorm(-abs(0.1045348/0.01432697))*2
+pnorm(-abs(0.1048932/0.01390019))*2
 ```
 
 ## Contact
